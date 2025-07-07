@@ -1,5 +1,6 @@
 package main
 
+
 import (
 	"encoding/json"
 	"net/http"
@@ -40,7 +41,7 @@ func health(c echo.Context) error {
 }
 
 func record(c echo.Context) error  {
-	var result map[string]interface{}
+	result := make(map[string]interface{})
 	if err := (&echo.DefaultBinder{}).BindBody(c, &result); err != nil {
 		return err
 	}
